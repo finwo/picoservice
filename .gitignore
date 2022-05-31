@@ -1,3 +1,4 @@
 src/routes.ts
+src/doc/
 build/
 node_modules/
