@@ -1,13 +1,16 @@
 import 'reflect-metadata';
 import 'module-alias/register';
 
+import * as swaggerUI from 'swagger-ui-express';
+import * as swaggerDocument from './doc/swagger.json';
+
 import { Server } from 'http';
 import express, { Response as ExResponse, Request as ExRequest, NextFunction } from 'express';
 import bodyParser from 'body-parser';
 import { ValidateError } from 'tsoa';
 import { RegisterRoutes } from './routes';
 
-import { PicoModule } from './PicoModule';
+import './PicoModule';
 
 export const app = express();
 const port = parseInt(process.env.PORT || '5000');
@@ -16,12 +19,14 @@ app.get('/health', (_req, res, _next) => {
   res.sendStatus(200);
 });
 
+
 app.use(
   bodyParser.urlencoded({
     extended: true,
   })
 );
 app.use(bodyParser.json());
+app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 RegisterRoutes(app);
 

@@ -1,10 +1,12 @@
+import { Service } from 'typedi';
 import * as path from 'path';
 import * as fs from 'fs';
 import { User } from '@pico/domain/model/user.model';
 import { UserRepository } from '@pico/domain/repository/user.repository';
 
-const storageFile = path.resolve(__dirname, '/../../../../../data/users.json');
+const storageFile = path.resolve(__dirname, '../../../../../data/users.json');
 
+@Service()
 export class UserJsonFileRepository extends UserRepository {
 
   public async saveUser(entity: User): Promise<boolean> {
@@ -14,6 +16,7 @@ export class UserJsonFileRepository extends UserRepository {
       fs.writeFileSync(storageFile, JSON.stringify(entities));
       return true;
     } catch(e: any) {
+      console.warn(e);
       return false;
     }
   }
