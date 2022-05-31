@@ -1,0 +1,25 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "commonjs",
+    "lib": ["ES2020", "DOM", "esnext.asynciterable"],
+    "sourceMap": true,
+    "rootDir": "./src",
+    "outDir": "./build",
+    "strict": true,
+    "strictNullChecks": true,
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "baseUrl": "./",
+    "strictPropertyInitialization": false,
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@pico/*": ["src/PicoModule/*"]
+    }
+  },
+  "include": ["src/**/*"]
+}

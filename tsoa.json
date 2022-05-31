@@ -1,0 +1,21 @@
+{
+  "entryFile": "src/index.ts",
+  "noImplicitAdditionalProperties": "throw-on-extras",
+  "controllerPathGlobs": [
+    "src/PicoModule/interface/rest/controller/*.controller.ts"
+  ],
+  "spec": {
+    "outputDirectory": "src/doc",
+    "specVersion": 3
+  },
+  "routes": {
+    "routesDir": "src",
+    "iocModule": "src/ioc"
+  },
+  "compilerOptions": {
+    "paths": {
+      "@core/*": ["src/core/*"],
+      "@pico/*": ["src/PicoModule/*"]
+    }
+  }
+}
