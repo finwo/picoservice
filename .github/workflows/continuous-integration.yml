@@ -10,6 +10,7 @@ jobs:
         with:
           node-version: 'lts/*'
       - run: npm ci --ignore-scripts
+      - run: npm run build
       - run: npm run check
   tests:
     name: Tests
@@ -20,6 +21,7 @@ jobs:
         with:
           node-version: 'lts/*'
       - run: npm ci --ignore-scripts
+      - run: npm run build
       - run: npm run test
   build:
     name: Build
