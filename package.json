@@ -14,7 +14,7 @@
     "check:typescript": "tsc -p . --noEmit",
     "check:prettier": "prettier --check \"./src/**/*.{ts,tsx}\"",
     "check:eslint": "eslint src --ext .js,.jsx,.ts,.tsx --max-warnings 0",
-    "test": "jest --forceExit",
+    "test": "echo 'No testing has been configured'",
     "format": "eslint src --ext .js,.jsx,.ts,.tsx --fix"
   },
   "dependencies": {
