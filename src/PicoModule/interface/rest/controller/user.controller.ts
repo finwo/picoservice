@@ -7,7 +7,7 @@ import { UserDomain } from '@pico/domain/user';
 @Route('/v1/pico/users')
 export class UserController {
   constructor(
-    private readonly domain: UserDomain
+    private readonly domain: UserDomain,
   ) {}
 
   // Provides GET route for domain methods

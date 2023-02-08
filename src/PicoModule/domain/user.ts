@@ -6,7 +6,7 @@ import { UserRepository } from '@pico/domain/repository/user.repository';
 export class UserDomain {
 
   constructor(
-    private readonly userRepository: UserRepository
+    private readonly userRepository: UserRepository,
   ) {}
 
   // Passthrough, no business logic here
@@ -19,7 +19,7 @@ export class UserDomain {
   public async findAllUsers(): Promise<User[]> {
     const users = await this.userRepository.findAll();
     return users.map(user => {
-      user.name = user.name.toUpperCase()
+      user.name = user.name.toUpperCase();
       return user;
     });
   }

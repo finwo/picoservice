@@ -15,7 +15,7 @@ import './PicoModule';
 export const app = express();
 const port = parseInt(process.env.PORT || '5000');
 
-app.get('/health', (_req, res, _next) => {
+app.get('/health', (_req, res) => {
   res.sendStatus(200);
 });
 
@@ -23,7 +23,7 @@ app.get('/health', (_req, res, _next) => {
 app.use(
   bodyParser.urlencoded({
     extended: true,
-  })
+  }),
 );
 app.use(bodyParser.json());
 app.use('/swagger', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
@@ -40,7 +40,7 @@ app.use(function errorHandler(
   err: unknown,
   req: ExRequest,
   res: ExResponse,
-  next: NextFunction
+  next: NextFunction,
 ): ExResponse | void {
   if (err instanceof ValidateError) {
     console.warn(`Caught Validation Error for ${req.path}:`, err.fields);
