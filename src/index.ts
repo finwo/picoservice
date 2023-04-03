@@ -3,7 +3,10 @@ import 'module-alias/register';
 
 import Fastify from 'fastify';
 import { plugin } from '@finwo/router-fastify';
-const app = Fastify();
+const app = Fastify({
+  ignoreTrailingSlash: true,
+  ignoreDuplicateSlashes: true,
+});
 
 import { PicoModule } from './PicoModule';
 
