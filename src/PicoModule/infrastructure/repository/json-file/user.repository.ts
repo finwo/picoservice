@@ -1,4 +1,4 @@
-import { Service } from 'typedi';
+import { Service } from '@finwo/di';
 import * as path from 'path';
 import * as fs from 'fs';
 import { User } from '@pico/domain/model/user.model';
@@ -23,7 +23,7 @@ export class UserJsonFileRepository extends UserRepository {
 
   public async findAll(): Promise<User[]> {
     const entities = JSON.parse(fs.readFileSync(storageFile).toString());
-    return entities.map((entity: any) => new User(entity));
+    return entities.map((entity: any) => User.fromData(entity));
   }
 
   public async findByName(name: string): Promise<User[]> {

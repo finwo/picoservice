@@ -1,4 +1,4 @@
 src/routes.ts
 src/doc/
-build/
+dist/
 node_modules/

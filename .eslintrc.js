@@ -20,5 +20,6 @@ module.exports = {
     'semi': [ 'error', 'always' ],
     'comma-dangle': [ 'error', 'always-multiline' ],
     '@typescript-eslint/no-explicit-any': 0,
+    'import-prefix-missing': 0,
   },
 };

@@ -1,4 +1,4 @@
-import { Service } from 'typedi';
+import { Service } from '@finwo/di';
 import { User } from '@pico/domain/model/user.model';
 
 @Service()

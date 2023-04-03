@@ -1,4 +1,4 @@
-import { Service } from 'typedi';
+import { Service } from '@finwo/di';
 import { User } from '@pico/domain/model/user.model';
 import { UserRepository } from '@pico/domain/repository/user.repository';
 
@@ -10,9 +10,14 @@ export class UserDomain {
   ) {}
 
   // Passthrough, no business logic here
-  public async createUser(data: Partial<User>) {
-    const user = new User(data);
-    return this.userRepository.saveUser(user);
+  public async createUser(data: Partial<User>): Promise<User> {
+    const user = User.fromData(data);
+
+    if (!this.userRepository.saveUser(user)) {
+      throw new Error('Unable to save user');
+    }
+
+    return user;
   }
 
   // Contains user logic
